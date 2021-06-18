@@ -1,0 +1,13 @@
+#app {
+    // Make homestuck link gold
+    .customNavBanner .nav1  { 
+        a {
+            color: gold;
+        }
+    }
+
+    // Remove outlink boxes
+    a::after {
+        content: "";
+    }
+}

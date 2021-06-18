@@ -1,7 +1,0 @@
-.customNavBanner .nav1 a {
-    color: gold !important;
-}
-
-a::after {
-    content: "" !important;
-}

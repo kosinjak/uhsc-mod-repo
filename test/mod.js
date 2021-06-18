@@ -74,6 +74,8 @@ module.exports = {
 
     styles: [
         // Inject css file
-        "./test.css"
+        {
+            source: "./test.scss"
+        }
     ],
 }
