@@ -1,0 +1,1 @@
+../Asset Pack V1 - The  Unofficial Homestuck Collection/Asset Pack - The  Unofficial Homestuck Collection/mods/serial.js

@@ -1,0 +1,160 @@
+<sburb>
+    <classes>
+<action class='damaraTalk1' sprite='meenah' command='talk' name='Talk to Damara.'>
+      <args>
+      @meenah_idle MEENAH: sooooo
+      @meenah_idle MEENAH: megido
+      @meenah_idle MEENAH: here we are again
+      @meenah_annoyed MEENAH: i guess
+      @damara_squint DAMARA: 
+      @meenah_annoyedtalk MEENAH: please tell me this reunion is as awkward for you as it is for me
+      @damara_squint DAMARA: 
+      @meenah_talk MEENAH: not gonna say nofin huh
+      @meenah_talk MEENAH: just going to stand there and leave me wrigglin on the hook during this frosty silence
+      @meenah_angrytalk MEENAH: come on you nutty bitch at least do SOM-EFIN to break the ice
+      @damara_fu3 DAMARA: 
+      @meenah_happier MEENAH: T)(ANK you
+      @meenah_talk MEENAH: hey you didnt by any chance kidnap nitrams lusus did you
+      @meenah_talk MEENAH: or steal all his dorky fiduspawn loot
+      @meenah_talk MEENAH: i thought we were past this
+      @meenah_annoyedtalk MEENAH: dont tell me youre still tormenting the guy even after eternity
+      @damara_talk DAMARA: Take your dual fork. Fuck yourself twice.
+      @meenah_wut MEENAH: do what to myself twice with my double W)(AT exactly??
+      @meenah_annoyedtalk MEENAH: cod damn your weird accent is thick as ever
+      @damara_talk DAMARA: Not thick enough to give you sexual pleasure.
+      @damara_squinttalk DAMARA: Will you keep boring me in your words? Or. Will you take off my clothes?
+      @damara_smilemeantalk DAMARA: I want to feel my nipple between your teeth.
+      @meenah_wut2 MEENAH: wha
+      @meenah_annoyedtalk MEENAH: did you just tell me to bite something or
+      @meenah_annoyed MEENAH: screw it i give up
+      @meenah_annoyedtalk MEENAH: language barrier be a fuckin motherglubber
+      @damara_smoke DAMARA: 
+      <!--  -->
+      </args>
+</action>
+
+<action class='damaraTalk2' sprite='meenah' command='talk' name='Ask Damara to join.'>
+      <args>
+      @meenah_happier MEENAH: hey so guess what! im building an army to kill lord ahahahaha
+      @meenah_creepylaugh:#aka#sea-lol MEENAH: S)(-ELL O)( S)(-ELL
+      @meenah_talk MEENAH: like you could give a fuck about saving reality and or wouldnt just be a huge backstabbin liability out there
+      @damara_idle DAMARA: Fair enough.
+      @meenah_talk MEENAH: but just for shits an cuttles uh
+      @meenah_talk MEENAH: been sorta wondering
+      @meenah_talk MEENAH: back when we like
+      @meenah_talk MEENAH: kind of ruined each others shit
+      @meenah_talk MEENAH: because of that whole cycle of revenge deal
+      @meenah_talk MEENAH: and i ended up dyin and god tiering and all
+      @meenah_idle MEENAH: remember that
+      @damara_smilemean DAMARA: I remember.
+      @damara_smiletalk DAMARA: Sometimes I masturbate in that memory.
+      @meenah_annoyedtalk MEENAH: aight not sure i followed that but ill assume it was more weird skanky sass
+      @meenah_talk MEENAH: but what i want to know is
+      @meenah_talk MEENAH: after the fight
+      @meenah_talk MEENAH: did i hurt you bad enough that you maybe
+      @meenah_talk MEENAH: crawled off and died somewhere
+      @meenah_wink MEENAH: like in a quest cocoon
+      @damara_idle DAMARA: ...
+      @meenah_happytalk MEENAH: were you maybe all bloodied up from all those forkins
+      @meenah_happytalk MEENAH: and then maybe along comes a friend with a maddening inability to hold a grudge against you for the ways you fucked him over
+      @meenah_happytalk MEENAH: maybe trotting along in his new robo horse body and swooped your bloody torso up on his back
+      @meenah_creepytalk MEENAH: galloped off to your cocoon and draped you on the slab while probly not havin the nerve to finish you off
+      @meenah_creepylaugh:#like-the-ones-in-your-batty-as-fuck-goddamn-belfry? MEENAH: this ringin any bells
+      @damara_huhtalk DAMARA: Fuck what are you talking about? Idiot bitch.
+      @meenah_angrytalk MEENAH: IM AXING IF YOU AR-E A GOD TI-ER YOU INSCRUTABL-E FIS)(WIF-E
+      @meenah_annoyedtalk MEENAH: holy mackerel gettin info outta yous like prying a pearl from a slutty murderous clam
+      @damara_squinttalk DAMARA: Clams do not produce pearls. You do not know anything of the sea.
+      @meenah_angrytalk MEENAH: yeah i know clams dont make pearls!!! look i just misspoke it was a hasty burn ok
+      @meenah_angrytalk MEENAH: dont be calling out my authority on the ocean dmeg you know i got all watery junk on LOCK 
+      @meenah_fishtalk MEENAH: who you think you tryin to rile up with that amateur noise
+      @damara_smoke DAMARA: You look very angry. Chill out fuck. Let's touch each other. Get stoned with me.
+      @meenah_wut2 MEENAH: omg i cant understand you
+      @meenah_wut MEENAH: chill out and do W)(AT with you...
+      @meenah_annoyedtalk MEENAH: going to ask again as simple as i can
+      @meenah_angrytalk MEENAH: M-EGIDO AR-E YOU A MAGIC IMMORTAL TIM-E FAIRYWITC)( WIT)( S-ECR-ET BUTT-ERFLY WINGS: Y-ES OR NO
+      @damara_talk DAMARA: Exactly how much. Do you want to know? Water bitch.
+      @meenah_idle MEENAH: damara
+      @meenah_talk MEENAH: if horrible conversations was a video game you would truly be last boss
+      @meenah_talk MEENAH: now where the fucks aranea and her lil windbag stand lets just get this jam over with already
+      <!--  -->
+      </args>
+</action>
+
+
+<action class='damaraTalk3' sprite='meenah' command='talk' name='Be Damara.'>
+      <args>
+      @damara_talk DAMARA: Do you want to be me?
+      @damara_talk DAMARA: You can't be me. If you do not understand me.
+      @damara_talk DAMARA: Plus. You can't be me. If you can't fuck me.
+      @meenah_talk MEENAH: ummm yeah no idea what you said
+      @meenah_talk MEENAH: guess someone who speaks your gibberish needs to ask
+      <!--  -->
+      </args>
+</action>
+
+<action class='damaraTalk4' sprite='rufioh' command='talk' name='Talk to Damara.'>
+      <args>
+      @rufioh_offendedtalk \nRUFIOH: hey doll... don't suppose you had anyth1ng to do w1th the recent d1sappearance of my lusus, d1d you?
+      @damara_talk DAMARA: Of course not. Your accusation is outrageous.
+      @rufioh_offended \nRUFIOH: yeah... sure... l1ke 1 bel1eve that!
+      @rufioh_talk \nRUFIOH: l1ke 1'm not so on to your tr1cks by now...
+      @damara_huhtalk DAMARA: Shut up. So. Are you broke up with him yet?
+      @rufioh_sadtalk \nRUFIOH: no... not yet...
+      @rufioh_sheepish \nRUFIOH: 1 tr1ed... but 1 just couldn't do 1t... 1t's hard, you know?
+      @damara_meantalk DAMARA: What do you mean? How it feels when your lover betrays you? Yes, I know.
+      @rufioh_sadtalk \nRUFIOH: d*mn... so cold, g1rl. why can't you let the past go?
+      @rufioh_offended \nRUFIOH: anyway... once 1 actually do get up the nerve to break 1t to h1m... don't be th1nk1ng th1s 1s your b1g chance w1th me!
+      @rufioh_sheepish \nRUFIOH: 1t's over between us for good... k1nda for obv1ous reasons... so just fr1ends, you d1g?
+      @damara_fiendish DAMARA: Right. We will see.
+      @rufioh_happytalk \nRUFIOH: haha... yeah, 1 f1gured you'd be l1ke that. 
+      @rufioh_surprisetalk \nRUFIOH: anyway, meenah k1nd of needs to keep go1ng through th1s bubble... 1 know you l1ke to make sh*t d1ff1cult for everyone all the t1me, but...
+      @rufioh_surprisetalk \nRUFIOH: you th1nk you could get r1d of that b1g *ss 1ceberg th1ng you dropped there?
+      @damara_idle DAMARA: No fucking way.
+      @rufioh_sheepish \nRUFIOH: aw, come on... do 1t for me, damara?
+      @damara_smilemeantalk DAMARA: Fine. But you owe me. Sexual favors.
+      @rufioh_laugh \nRUFIOH: hahahaha... wow... alr1ght uh... maybe? just go...
+      <!--  -->
+      </args>
+</action>
+
+<action class='damaraTalk5' sprite='horuss' command='talk' name='Talk to Damara.'>
+      <args>
+      @horuss_smiletalk HORUSS: 8=D &lt; Oh, hello Damara. I heard you were having a mechanical issue with your chest over here. Mind if I take a 100k?
+      @damara_talk DAMARA: You can show my breasts at any time.
+      @horuss_smiletalk HORUSS: 8=D &lt; I... think you said yes? Sorry, I really struggle with your coarse lowb100d accent.
+      @damara_talk DAMARA: Pour milk over my boobs.
+      @horuss_smiletalk HORUSS: 8=D &lt; I didn't quite understand that either. Something about milk? Served to you in a particular way?
+      @horuss_hmmtalk HORUSS: 8=D &lt; Yes, if you would like some milk, I can bring you some later. I'll just need to equip my steam powered deSTRENGTHening gloves so that I may hand you the glass without shattering it.
+      @damara_talk DAMARA: No. Do not wear gloves. I like it rough. Crush my body. Horse man.
+      @horuss_hmmtalk HORUSS: 8=D &lt; I really need to finish my universal translation device so we can have a more coherent conversation. It's just so difficult to get the circuitry to function correctly when one insists on relying on steam power.
+      @damara_squinttalk DAMARA: You make sure my genitals like ghosts have a sexual climax. You need to do it with your phantom horse penis.
+      @horuss_smiletalk HORUSS: 8=D &lt; You want me to bring your what to what e%25actly with my what?
+      @damara_smiletalk DAMARA: Rub your sweaty face on my bare bottom.
+      @horuss_idle HORUSS: 8=D &lt; Hmm. I...
+      @horuss_sweat_bashful HORUSS: 8=D &lt; Sure?
+      @damara_smilemeantalk DAMARA: I'm your Asian schoolgirl. You can reduce my clothes to shreds. You need to please me. Use your horn.
+      @horuss_sweat_grin HORUSS: 8=D &lt; Do what with your schoolgirl uniform?
+      @horuss_sweat_talk HORUSS: 8=D &lt; I wouldn't want to do anything to ruin it. It's quite nice. 
+      @horuss_hmmtalk HORUSS: 8=D &lt; But perhaps I could craft a robotic avatar for you, emulating your fashion choices. Actually, if I did that, I could install more sensible speech algorithms, so that I could understand you for a change.
+      @damara_mean DAMARA: I'm quiet. Fuck me silently.
+      @horuss_sweat_idle HORUSS: 8=D &lt; Um. *Cough.*
+      @damara_meantalk DAMARA: Enter my body. Or. I will destroy you.
+      @horuss_sweat_bashful HORUSS: 8=D &lt; Damara, forgive me if I'm leaping to conclusions, but has the nature of your cryptic remarks been leaning... well...
+      @horuss_oops HORUSS: 8=D &lt; A little b100?
+      @damara_lewd DAMARA: 
+      <!--  -->
+      </args>
+</action>
+
+<action class='damaraTalk6' sprite='horuss' command='talk' name='Be Damara.'>
+      <args>
+      @damara_talk DAMARA: Do you want to be me?
+      @damara_talk DAMARA: You can't be me. If you do not understand me.
+      @damara_talk DAMARA: Plus. You can't be me. If you can't fuck me.
+      @horuss_sweat_grin HORUSS: 8=D &lt; Come again?
+      @horuss_sweat_grin HORUSS: 8=D &lt; I suppose Rufioh should ask. He's always been the only one who can parse your vulgar, peasant tongue.
+      <!--  -->
+      </args>
+</action>
+  	</classes>
+</sburb>
