@@ -44,7 +44,7 @@
 .tabShell {
     .tab {
         background: #EDF6FC;
-        .activeTab {
+        &.activeTab {
             background: #E2EEFA;
         }
     }
