@@ -1,6 +1,6 @@
 module.exports = {
-    title: "Super retro theme", 
-    desc: "API test",
+    title: "Windows 95 Theme", 
+    desc: "Windows 95 Theme",
     author: "Gio",
     modVersion: 0.1,
 
@@ -11,5 +11,9 @@ module.exports = {
             label: "Super retro",
             source: "./theme.scss"
         }
-    ]
+    ],
+
+    routes: {
+        'assets://mod/win95/title.png': './title.png',
+    },
 }
