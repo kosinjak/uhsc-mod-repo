@@ -28,9 +28,6 @@ module.exports = {
     // Operate on oarchive data
     edit(archive) {
         logger.info("New logger")
-        logger.info(`Setting myKey is ${store.get("myKey")}`)
-        logger.info("Setting to 8")
-        store.set("myKey", 8)
         console.log("Test mod mounted", sub())
         archive.mspa.story['001901'].content = `A young man stands in his bedroom. It just so happens that today, the 13th of April, is this young man's birthday. 
             Though it was thirteen years ago he was given life, it is only today he will be given a name!
@@ -45,9 +42,6 @@ module.exports = {
         computed: {
             logButtonText($super) {
                 logger.info("New logger")
-                logger.info(`Setting myKey is ${store.get("myKey")}`)
-                logger.info("Setting to 2")
-                store.set("myKey", 2)
 
                 this.$logger.debug("Computed function has binding")
                 return `${this.logHidden} ` + $super()
