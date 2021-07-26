@@ -2,12 +2,18 @@ function sub(){
     return "successfully"
 }
 
+let logger = null
+let store = null
+
 module.exports = {
     title: "Test Mod", 
     desc: "API test",
     author: "Test Author",
     modVersion: 0.1,
     locked: "002000",
+
+    withLogger(newLogger) { logger = newLogger },
+    withStore(newStore) { store = newStore },
 
     routes: {
         'assets://storyfiles/hs2/00002.gif': './file.gif',
@@ -21,6 +27,10 @@ module.exports = {
 
     // Operate on oarchive data
     edit(archive) {
+        logger.info("New logger")
+        logger.info(`Setting myKey is ${store.get("myKey")}`)
+        logger.info("Setting to 8")
+        store.set("myKey", 8)
         console.log("Test mod mounted", sub())
         archive.mspa.story['001901'].content = `A young man stands in his bedroom. It just so happens that today, the 13th of April, is this young man's birthday. 
             Though it was thirteen years ago he was given life, it is only today he will be given a name!
@@ -34,6 +44,11 @@ module.exports = {
         matchName: "pageText",
         computed: {
             logButtonText($super) {
+                logger.info("New logger")
+                logger.info(`Setting myKey is ${store.get("myKey")}`)
+                logger.info("Setting to 2")
+                store.set("myKey", 2)
+
                 this.$logger.debug("Computed function has binding")
                 return `${this.logHidden} ` + $super()
             }
@@ -78,4 +93,43 @@ module.exports = {
             source: "./test.scss"
         }
     ],
+
+    settings: {
+        boolean: [{
+            model: "booltest",
+            label: "Mod bool test",
+            desc: "Mod bool test desc"
+        }],
+        radio: [{
+            model: "radiotest",
+            label: "Mod radio test",
+            desc: "Mod radio test desc",
+            options: [
+                {
+                    value: "value_a",
+                    label: "Value A",
+                    desc: "the a value"
+                },
+                {
+                    value: "value_b",
+                    label: "Value B",
+                    desc: "the b value"
+                }
+            ]
+        },{
+            model: "radiotest2",
+            label: "Mod radio test (Compressed)",
+            desc: "Mod radio test desc 2",
+            options: [
+                {
+                    value: "value_a",
+                    label: "Value A"
+                },
+                {
+                    value: "value_b",
+                    label: "Value B"
+                }
+            ]
+        }]
+    }
 }
