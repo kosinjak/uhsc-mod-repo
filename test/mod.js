@@ -12,6 +12,8 @@ module.exports = {
     modVersion: 0.1,
     locked: "002000",
 
+    description: `This is a test of <b>most</b> of the API functions. This particular test is of the longform HTML description.<br />With some creativity, you could probably even embed images here.<img src='assets://modfiles/testmod/collection_logo.png' />`,
+
     computed(api) { 
         logger = api.logger
         store = api.store
@@ -20,6 +22,7 @@ module.exports = {
     routes: {
         'assets://storyfiles/hs2/00002.gif': './file.gif',
         'assets://archive/collection/collection_logo.png': './collection_logo.png',
+        'assets://modfiles/testmod/collection_logo.png': './collection_logo.png',
     },
     
     // for f in ${treeroute}/**
@@ -94,28 +97,28 @@ module.exports = {
         boolean: [{
             model: "booltest",
             label: "Mod bool test",
-            summary: "Mod bool test desc"
+            desc: "Mod bool test desc"
         }],
         radio: [{
             model: "radiotest",
             label: "Mod radio test",
-            summary: "Mod radio test desc",
+            desc: "Mod radio test desc",
             options: [
                 {
                     value: "value_a",
                     label: "Value A",
-                    summary: "the a value"
+                    desc: "the a value"
                 },
                 {
                     value: "value_b",
                     label: "Value B",
-                    summary: "the b value"
+                    desc: "the b value"
                 }
             ]
         },{
             model: "radiotest2",
             label: "Mod radio test (Compressed)",
-            summary: "Mod radio test desc 2",
+            desc: "Mod radio test desc 2",
             options: [
                 {
                     value: "value_a",

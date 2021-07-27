@@ -45,7 +45,7 @@ module.exports = {
     },{
       model: "hidename",
       label: "Hide Name",
-      summary: "Don't show \"Andrew Hussie\" name on commentary footnotes"
+      desc: "Don't show \"Andrew Hussie\" name on commentary footnotes"
     }]
   }
 }
