@@ -1,6 +1,6 @@
 module.exports = {
     title: "Damara translation", 
-    desc: "In-game english language translation",
+    summary: "In-game english language translation",
     author: "Gio",
     modVersion: 0.1,
     locked: "007163",

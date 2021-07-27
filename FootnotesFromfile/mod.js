@@ -1,6 +1,6 @@
 module.exports = {
     title: "Footnotes fromfile", 
-    desc: "test mod",
+    summary: "test mod",
     
     footnotes: "./footnotes.json"
 }

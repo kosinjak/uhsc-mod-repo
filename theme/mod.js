@@ -1,6 +1,6 @@
 module.exports = {
     title: "Windows 95 Theme", 
-    desc: "Windows 95 Theme",
+    summary: "Windows 95 Theme",
     author: "Gio",
     modVersion: 0.1,
 
