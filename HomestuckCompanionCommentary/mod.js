@@ -1,19 +1,38 @@
-let store = null
-
 let story_archivist = null
 let story_author = null
 
 module.exports = {
   title: "Homestuck Companion Commentary", 
-  desc: "Transcription of the author commentary from the Homestuck books, with archivists' notes from the /r/Homestuck community.",
+  summary: "Transcription of the author commentary from the Homestuck books, with archivists' notes from the /r/Homestuck community.",
   author: "/r/homestuck",
   version: 0.1,
 
-  withStore(newStore) { 
-    store = newStore
-    // Default to on
+  computed(api) { 
+    store = api.store
+
+    // Store defaults
     store.set("show_author", store.get("show_author", true))
     store.set("show_notes", store.get("show_notes", true))
+
+    // Compute footnotes object
+    let notes = []
+    if (store.get("show_author")) {
+      notes.push({
+        "author": store.get("hidename") ? "" : "Andrew Hussie",
+        "story": story_author
+      })
+    }
+
+    if (store.get("show_notes")) {
+      notes.push({
+        "author": "Homestuck Companion",
+        "story": story_archivist
+      })
+    }
+
+    return {
+      footnotes: notes
+    }
   },
   
   settings: {
@@ -26,27 +45,8 @@ module.exports = {
     },{
       model: "hidename",
       label: "Hide Name",
-      desc: "Don't show \"Andrew Hussie\" name on commentary footnotes"
+      summary: "Don't show \"Andrew Hussie\" name on commentary footnotes"
     }]
-  },
-
-  // footnotes: "./footnotes.json"
-  footnotes() {
-    let notes = []
-    if (store.get("show_notes")) {
-      notes.push({
-        "author": "Homestuck Companion",
-        "story": story_archivist
-      })
-    }
-
-    if (store.get("show_author")) {
-      notes.push({
-        "author": store.get("hidename") ? "" : "Andrew Hussie",
-        "story": story_author
-      })
-    }
-    return notes
   }
 }
 

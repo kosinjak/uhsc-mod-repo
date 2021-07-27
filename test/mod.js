@@ -7,13 +7,15 @@ let store = null
 
 module.exports = {
     title: "Test Mod", 
-    desc: "API test",
+    summary: "API test",
     author: "Test Author",
     modVersion: 0.1,
     locked: "002000",
 
-    withLogger(newLogger) { logger = newLogger },
-    withStore(newStore) { store = newStore },
+    computed(api) { 
+        logger = api.logger
+        store = api.store
+    },
 
     routes: {
         'assets://storyfiles/hs2/00002.gif': './file.gif',
@@ -92,28 +94,28 @@ module.exports = {
         boolean: [{
             model: "booltest",
             label: "Mod bool test",
-            desc: "Mod bool test desc"
+            summary: "Mod bool test desc"
         }],
         radio: [{
             model: "radiotest",
             label: "Mod radio test",
-            desc: "Mod radio test desc",
+            summary: "Mod radio test desc",
             options: [
                 {
                     value: "value_a",
                     label: "Value A",
-                    desc: "the a value"
+                    summary: "the a value"
                 },
                 {
                     value: "value_b",
                     label: "Value B",
-                    desc: "the b value"
+                    summary: "the b value"
                 }
             ]
         },{
             model: "radiotest2",
             label: "Mod radio test (Compressed)",
-            desc: "Mod radio test desc 2",
+            summary: "Mod radio test desc 2",
             options: [
                 {
                     value: "value_a",
