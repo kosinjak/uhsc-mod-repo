@@ -1,6 +1,10 @@
 let logger = null
 let store = null
 
+function replaceContent(story, key, pat, repl){
+    story[key].content = story[key].content.replace(pat, repl)
+}
+
 module.exports = {
     title: "UHC Oddities", 
     summary: "Features and tweaks that are too weird for settings",
@@ -20,7 +24,10 @@ module.exports = {
             </p>`
         }
         if (store.get("no2009")) {
-            archive.mspa.story['001901'].content = archive.mspa.story['001901'].content.replace("April, 2009,", "April,")
+            replaceContent(archive.mspa.story, '001901', "April, 2009,", "April,")
+        }
+        if (store.get("whiterapper")) {
+            replaceContent(archive.mspa.story, '002286', "being a white guy who is a rapper", "being a Íæûë€Å guy who is a rapper")
         }
     },
 
@@ -52,11 +59,15 @@ module.exports = {
         },{
             model: "calliope",
             label: "Show Author Note",
-            desc: "Show author note on p=006997"
+            desc: "Show author note on <a href='/mspa/006997'>p=006997</a>"
         },{
             model: "no2009",
             label: "No 2009",
             desc: "Reverses the date retcon on the first page of Homestuck"
+        },{
+            model: "whiterapper",
+            label: "Íæûë€Å",
+            desc: "Ends racism. (See <a href='/tumblr/iaeu-eeura'>/tumblr/iaeu-eeura</a> for commentary)"
         }]
     }
 }
