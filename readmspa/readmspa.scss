@@ -43,8 +43,11 @@
 //     text-align: left;
 // }
 
-.pageFrame .pageContent .footnote.readmspa {
+.pageFrame .pageContent .footnote.readmspa,
+.footnote.readmspa {
     pre {
+        color: var(--font-default);
+        background-color: var(--page-pageContent);
         white-space: pre-wrap;
         text-align: left;
     }
@@ -64,8 +67,8 @@
                 padding: 1.2em 0;
             }
         }
-        background-color: white;
-        color: black;
+        color: var(--font-default);
+        background-color: var(--page-pageContent);
         padding: 1em 2em;
         white-space: pre-wrap;
         font-weight: normal;
