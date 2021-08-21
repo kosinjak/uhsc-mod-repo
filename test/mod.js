@@ -28,7 +28,9 @@ module.exports = {
     // for f in ${treeroute}/**
     // 'assets://${f}': '$f'
     // optional or false: do not use
-    treeroute: "./tree/",
+    trees: {
+        './tree/': 'assets://',
+    },
 
     // Operate on oarchive data
     edit(archive) {
@@ -39,6 +41,7 @@ module.exports = {
             <br /><br />
             What will the name of this young man be?`
         archive.mspa.story['010030'].title = "[S] EOHS"
+        archive.mspa.story['008801'].media = ["/storyfiles/hs2/008801.mp4"]
     },
 
     vueHooks: [{
