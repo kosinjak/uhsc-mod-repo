@@ -11,9 +11,19 @@ module.exports = {
     author: "GiovanH",
     modVersion: 0.1,
 
+    routes: true,
+
     computed(api) { 
         logger = api.logger
         store = api.store
+
+        if (api.store.get("altlogo")) {
+            return {
+                routes: {
+                    'assets://archive/collection/collection_logo.png': './collection_logo.png',
+                }
+            }
+        }
     },
 
     edit(archive) {
@@ -53,6 +63,10 @@ module.exports = {
 
     settings: {
         boolean: [{
+            model: "altlogo",
+            label: "Alternate collection logo",
+            desc: "Replaces the collection logo with a cleaner design"
+        },{
             model: "ryanlogs",
             label: "Show Extra Logs",
             desc: "Include buttons for side adventures under <code>/logs</code>"
