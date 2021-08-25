@@ -59,6 +59,16 @@ module.exports = {
                 } else return $super
             }
         }
+    },{
+        matchName: "page",
+        data: {
+            forceKeyboardEnable($super){
+                if (store.get("swfnav_keyboardenable"))
+                    return true
+                else
+                    return $super
+            }
+        }
     }],
 
     settings: {
@@ -66,6 +76,10 @@ module.exports = {
             model: "altlogo",
             label: "Alternate collection logo",
             desc: "Replaces the collection logo with a cleaner design"
+        },{
+            model: "swfnav_keyboardenable",
+            label: "Always enable keyboard shortcuts",
+            desc: 'If "Enable arrow key navigation" is enabled, this forces arrow keys to work even on pages without clickable links. Enabling this may allow you to accidently skip content.'
         },{
             model: "ryanlogs",
             label: "Show Extra Logs",
@@ -81,7 +95,7 @@ module.exports = {
         },{
             model: "whiterapper",
             label: "Íæûë€Å",
-            desc: "Ends racism. (See <a href='/tumblr/iaeu-eeura'>/tumblr/iaeu-eeura</a> for commentary)"
+            desc: "See <a href='/tumblr/iaeu-eeura'>/tumblr/iaeu-eeura</a>"
         }]
     }
 }
