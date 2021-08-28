@@ -23,6 +23,8 @@ module.exports = {
         'assets://storyfiles/hs2/00002.gif': './file.gif',
         'assets://archive/collection/collection_logo.png': './collection_logo.png',
         'assets://modfiles/testmod/collection_logo.png': './collection_logo.png',
+        'assets://storyfiles/hs2/05235/toxic1.mp3': './toxic1.mp3',
+        'assets://storyfiles/hs2/01940/cascade.mp3': './cascadebeta.mp3'
     },
     
     // for f in ${treeroute}/**
@@ -42,6 +44,31 @@ module.exports = {
             What will the name of this young man be?`
         archive.mspa.story['010030'].title = "[S] EOHS"
         archive.mspa.story['008801'].media = ["/storyfiles/hs2/008801.mp4"]
+
+        const unite = archive.mspa.story['007138']
+        archive.audioData[unite.media[0]] = [
+            {
+                href: `assets://storyfiles/hs2/05235/toxic1.mp3`,
+                audioDelay: 2150 // -434
+            },
+        ]
+        archive.music.flashes['007138'] = {
+            "date": "2012-07-09T01:00:00.000Z",
+            "tracks": [ "Toxic" ]
+        }
+
+        const descend = archive.mspa.story['003840']
+        archive.audioData[descend.media[0]] = [
+            {
+                href: `assets://storyfiles/hs2/01940/cascade.mp3`,
+                audioDelay: 0
+            },
+        ]
+        archive.music.flashes['003840'] = {
+            "date": "2012-07-09T01:00:00.000Z",
+            "tracks": [ "Cascade (Beta)" ]
+        }
+
     },
 
     vueHooks: [{
