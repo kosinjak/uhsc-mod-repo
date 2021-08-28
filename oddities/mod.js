@@ -12,18 +12,24 @@ module.exports = {
     modVersion: 0.1,
 
     routes: true,
+    styles: true,
 
     computed(api) { 
         logger = api.logger
         store = api.store
 
+        computed = {}
         if (api.store.get("altlogo")) {
-            return {
-                routes: {
-                    'assets://archive/collection/collection_logo.png': './collection_logo.png',
-                }
+            computed.routes = {
+                'assets://archive/collection/collection_logo.png': './collection_logo.png',
             }
         }
+        if (api.store.get("notricksterbanner")) {
+            computed.styles = [
+                {body: "div.pageBody.trickster nav.navBanner {display: none;}"}
+            ]
+        }
+        return computed
     },
 
     edit(archive) {
@@ -69,6 +75,16 @@ module.exports = {
                     return $super
             }
         }
+    },{
+        match: (c)=> ["tabBar", "jumpBox"].includes(c.$options.name),
+        computed: {
+            allUrlSuggestions($super){
+                if (store.get("nosuggest"))
+                    return []
+                else
+                    return $super
+            }
+        }
     }],
 
     settings: {
@@ -76,6 +92,9 @@ module.exports = {
             model: "altlogo",
             label: "Alternate collection logo",
             desc: "Replaces the collection logo with a cleaner design"
+        },{
+            model: "nosuggest",
+            label: "Disable address bar suggestions"
         },{
             model: "swfnav_keyboardenable",
             label: "Always enable keyboard shortcuts",
@@ -92,6 +111,10 @@ module.exports = {
             model: "no2009",
             label: "No 2009",
             desc: "Reverses the date retcon on the first page of Homestuck"
+        },{
+            model: "notricksterbanner",
+            label: "Allow hiding banner",
+            desc: "Allows the app to hide the main nagivation banner on normal pages where the story did."
         },{
             model: "whiterapper",
             label: "Íæûë€Å",
