@@ -29,6 +29,31 @@ module.exports = {
                 {body: "div.pageBody.trickster nav.navBanner {display: none;}"}
             ]
         }
+        if (api.store.get("smallmainmenu")) {
+            computed.styles = [
+                {body: `
+.homepage.pageBody {
+    .card {
+        margin-bottom: 25px;
+        img.logo {
+            display: none;
+            &.cardContent + .cardContent {
+                padding-top: 0;
+            }
+        }
+    }
+    .navBanner + .card.Logo {
+        border-top: 0;
+        padding-top: 0;
+        padding-bottom: 1em;
+        margin-top: -25px;
+        .topLogo {
+            display: none;
+        }
+    }
+}`}
+            ]
+        }
         return computed
     },
 
@@ -85,13 +110,25 @@ module.exports = {
                     return $super
             }
         }
+    },{
+        match: (c)=> ["page", "x2Combo"].includes(c.$options.name),
+        computed: {
+            showMetadata($super){
+                if (store.get("readmeta"))
+                    return true
+                else
+                    return $super
+            }
+        }
     }],
 
     settings: {
         boolean: [{
             model: "altlogo",
-            label: "Alternate collection logo",
-            desc: "Replaces the collection logo with a cleaner design"
+            label: "Alternate collection logo"
+        },{
+            model: "smallmainmenu",
+            label: "Smaller main menu layout"
         },{
             model: "nosuggest",
             label: "Disable address bar suggestions"
@@ -115,6 +152,9 @@ module.exports = {
             model: "notricksterbanner",
             label: "Allow hiding banner",
             desc: "Allows the app to hide the main nagivation banner on normal pages where the story did."
+        },{
+            model: "readmeta",
+            label: "Show readmspa metadata box"
         },{
             model: "whiterapper",
             label: "Íæûë€Å",
