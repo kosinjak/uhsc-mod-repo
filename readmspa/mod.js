@@ -189,11 +189,9 @@ module.exports = {
     updated() {
       if (alttext_enabled) {
         this.$el.querySelectorAll("img").forEach(el => {
-          this.$logger.info(el.src)
           for (let key in alttext) {
             if (el.src.endsWith(key)) {
               el.title = alttext[key]
-              this.$logger.info(alttext[key])
               break
             }
           }
