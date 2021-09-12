@@ -120,12 +120,49 @@ module.exports = {
                     return $super
             }
         }
+    },{
+        matchName: "navBanner",
+        data: {
+            urls($super){
+                if (store.get('altnavbanner')) {
+                    return [
+                        [ "/"
+                        ],
+                        [ "https://www.homestuck.com",
+                          "toggleJumpBox"
+                        ],
+                        [ "/map",
+                          "/log",
+                          "/search"
+                        ],
+                        [ "toggleBookmarks"
+                        ],
+                        [ "/settings",
+                          "/credits"
+                        ]
+                    ]
+                } else return $super
+            },
+            labels($super){
+                let labels = $super
+                if (store.get('altnavbanner')) {
+                    labels['']["https://www.homestuck.com"] = "VIZ"
+                    labels['']["/"] = "HOMESTUCK"
+                    labels['']["/log"] = this.labels['']["/log"]
+                }
+                return labels
+            }
+        },
     }],
 
     settings: {
         boolean: [{
             model: "altlogo",
             label: "Alternate collection logo"
+        },{
+            model: "altnavbanner",
+            label: "Alternate nav banner", 
+            desc: "Prioritizes the home page link in navigation, with viz's homestuck.com as secondary",
         },{
             model: "smallmainmenu",
             label: "Smaller main menu layout"
