@@ -51,6 +51,34 @@ module.exports = {
             display: none;
         }
     }
+    div.card:nth-child(4) {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+    }
+    .cardEntry { &.jbCard, &.bqCard, &.psCard {
+        padding-top: 0 !important;
+        flex: 1 1 0;
+        div.icon {
+            margin: auto;
+            font-size: 28px;
+            img {
+                margin: auto;
+            }
+        }
+        .description {
+            display: none;
+        }
+    }}
+    .jbCard .icon a::after {
+        content: "Jailbreak";
+    }
+    .bqCard .icon a::after {
+        content: "Bard Quest";
+    }
+    .psCard .icon a::after {
+        content: "Problem Sleuth";
+    }
 }`}
             ]
         }

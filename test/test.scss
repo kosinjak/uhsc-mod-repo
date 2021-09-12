@@ -7,7 +7,7 @@
     }
 
     // Remove outlink boxes
-    a::after {
+    a[href^="http://"]:not([href*="127.0.0.1"]):not([href*=localhost])::after, a[href^="https://"]:not([href*="127.0.0.1"]):not([href*=localhost])::after, a[href^=mailto]:not([href*="127.0.0.1"]):not([href*=localhost])::after, a[href$=".pdf"]::after, a[href$=".html"]::after, .bookmarkUrlDisplay[href^="http://"]:not([href*="127.0.0.1"]):not([href*=localhost])::after, .bookmarkUrlDisplay[href^="https://"]:not([href*="127.0.0.1"]):not([href*=localhost])::after, .bookmarkUrlDisplay[href^=mailto]:not([href*="127.0.0.1"]):not([href*=localhost])::after, .bookmarkUrlDisplay[href$=".pdf"]::after, .bookmarkUrlDisplay[href$=".html"]::after {
         content: "";
     }
 }
