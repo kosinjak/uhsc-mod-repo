@@ -103,7 +103,7 @@ module.exports = {
     vueHooks: [{
         // same as match(c) {return c.$options.name == "pageText"}
         matchName: "log",
-        computed: {
+        data: {
             adventureLinks($super) {
                 // Todo: properly insert links into arbitrary super
                 if (store.get("ryanlogs")) {
