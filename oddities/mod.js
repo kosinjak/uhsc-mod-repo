@@ -11,8 +11,8 @@ module.exports = {
     author: "GiovanH",
     modVersion: 0.1,
 
-    routes: true,
-    styles: true,
+    routes: [],
+    styles: [],
 
     computed(api) { 
         logger = api.logger

@@ -7,6 +7,8 @@ module.exports = {
   author: "/r/homestuck",
   version: 0.1,
 
+  footnotes: true,
+
   computed(api) { 
     store = api.store
 
