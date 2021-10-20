@@ -129,6 +129,16 @@ module.exports = {
             }
         }
     },{
+        matchName: "settings",
+        data: {
+            clearThemesForNewReader($super){
+                if (store.get("clearThemesForNewReader"))
+                    return true
+                else
+                    return $super
+            }
+        }
+    },{
         match: (c)=> ["tabBar", "jumpBox"].includes(c.$options.name),
         computed: {
             allUrlSuggestions($super){
@@ -224,6 +234,9 @@ module.exports = {
             model: "whiterapper",
             label: "Íæûë€Å",
             desc: "See <a href='/tumblr/iaeu-eeura'>/tumblr/iaeu-eeura</a>"
+        },{
+            model: "clearThemesForNewReader",
+            label: "Reset theme settings when new reader mode is enabled",
         }]
     }
 }
