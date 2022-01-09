@@ -1,37 +1,7 @@
 let logger = null
 let store = null
 
-function replaceContent(story, key, pat, repl){
-    story[key].content = story[key].content.replace(pat, repl)
-}
-
-module.exports = {
-    title: "UHC Oddities", 
-    summary: "Features and tweaks that are too weird for settings",
-    author: "GiovanH",
-    modVersion: 0.1,
-
-    routes: [],
-    styles: [],
-
-    computed(api) { 
-        logger = api.logger
-        store = api.store
-
-        computed = {}
-        if (api.store.get("altlogo")) {
-            computed.routes = {
-                'assets://archive/collection/collection_logo.png': './collection_logo.png',
-            }
-        }
-        if (api.store.get("notricksterbanner")) {
-            computed.styles = [
-                {body: "div.pageBody.trickster nav.navBanner {display: none;}"}
-            ]
-        }
-        if (api.store.get("smallmainmenu")) {
-            computed.styles = [
-                {body: `
+const css_smallmainmenu = `
 .homepage.pageBody {
     .card {
         margin-bottom: 25px;
@@ -70,17 +40,55 @@ module.exports = {
             display: none;
         }
     }}
-    .jbCard .icon a::after {
-        content: "Jailbreak";
+    .jbCard .icon a::after { content: "Jailbreak"; }
+    .bqCard .icon a::after { content: "Bard Quest"; }
+    .psCard .icon a::after { content: "Problem Sleuth"; }
+}`
+
+function replaceContent(story, key, pat, repl){
+    story[key].content = story[key].content.replace(pat, repl)
+}
+
+module.exports = {
+    title: "UHC Oddities", 
+    summary: "Features and tweaks that are too weird for settings",
+    author: "GiovanH",
+    modVersion: 0.1,
+
+    routes: {},
+    styles: [],
+
+    computed(api) { 
+        logger = api.logger
+        store = api.store
+
+        computed = {
+            routes: [],
+            styles: []
+        }
+        computed.routes['assets://pseudo/v1_compressed.png'] = './collection_logo.png'
+        
+        if (store.get("notricksterbanner")) {
+            computed.styles.push(
+                {body: "div.pageBody.trickster nav.navBanner {display: none;}"}
+            )
+        }
+        logger.log(store.get("logo_src"))
+        if (store.get("logo_src")?.width) {
+            computed.styles.push(
+                {body: `
+.homepage.pageBody {
+    .Logo .topLogo {
+        img, video {
+            width: ${store.get("logo_src")?.width}px;
+        }
     }
-    .bqCard .icon a::after {
-        content: "Bard Quest";
-    }
-    .psCard .icon a::after {
-        content: "Problem Sleuth";
-    }
-}`}
-            ]
+}`})
+        }
+        if (store.get("smallmainmenu")) {
+            computed.styles.push(
+                {body: css_smallmainmenu}
+            )
         }
         return computed
     },
@@ -126,6 +134,13 @@ module.exports = {
                     return true
                 else
                     return $super
+            }
+        }
+    },{
+        matchName: "homepage",
+        data: {
+            logo_src($super){
+                return store.get("logo_src")?.src || $super
             }
         }
     },{
@@ -194,10 +209,37 @@ module.exports = {
     }],
 
     settings: {
+        radio: [{
+            model: "logo_src",
+            label: "Logo style",
+            desc: "Change the style of the main collection logo on the Homepage.",
+            options: [{
+                value: { src: "assets://archive/collection/logo_v2_full.webm" },
+                label: "New Logo (Default)",
+            },{
+                value: { src: "assets://archive/collection/logo_v2_static.png" },
+                label: "New Logo (Static)",
+            },{
+                value: { src: "assets://archive/collection/logo_v2_reduced.webm" },
+                label: "New Logo (Reduced motion)",
+            },{
+                value: { src: "assets://archive/collection/logo_v2_slower.mp4" },
+                label: "New Logo (Slower)",
+            },{
+                value: { 
+                    src: "assets://archive/collection/logo_v1.png",
+                    width: 700
+                },
+                label: "Old logo"
+            },{
+                value: { 
+                    src: "assets://pseudo/v1_compressed.png",
+                    width: 700
+                },
+                label: "Compressed logo"
+            }]
+        }],
         boolean: [{
-            model: "altlogo",
-            label: "Alternate collection logo"
-        },{
             model: "altnavbanner",
             label: "Alternate nav banner", 
             desc: "Prioritizes the home page link in navigation, with viz's homestuck.com as secondary",
