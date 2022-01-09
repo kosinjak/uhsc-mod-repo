@@ -54,6 +54,30 @@ module.exports = {
           )
         }}
       }
+    },
+    HQAudioToggle: {
+      component: {
+        methods: {
+          toggle(){
+            const { ipcRenderer } = require('electron')
+            this.$localData.settings.hqAudio = !this.$localData.settings.hqAudio
+            ipcRenderer.send('RELOAD_ARCHIVE_DATA')
+          }
+        },
+        render: function(){with (this) {
+          return _c(
+            "div",
+            { staticClass: "systemButton",
+              class: { active: $localData.settings.hqAudio },
+              on: { click: toggle }
+            },
+            [ _c("fa-icon", {
+                attrs: { icon: "music" }
+              })
+            ], 1
+          )
+        }}
+      }
     }
   },
 
