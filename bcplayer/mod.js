@@ -118,7 +118,8 @@ const BCToggleAction = {
       toggle(){
         // See https://vuejs.org/v2/guide/reactivity.html#For-Objects
         this.$set(this.$archive.flags, 'BCToolbarShow', 
-          Boolean(this.$archive.flags['BCToolbarShow']))
+          Boolean(!this.$archive.flags['BCToolbarShow']))
+        console.log("Toggle", this.$archive.flags['BCToolbarShow'])
       }
     },
     render: function(){with (this) {
@@ -143,6 +144,8 @@ module.exports = {
   author: "GiovanH",
   modVersion: 0.1,
   locked: "001977",
+
+  description: `This is a proof-of-concept in-app music player, and a demonstration of the modding toolbar API.<br>The player will randomly shuffle all non-spoiler Homestuck music. You can open the player with the music icon browser action and you can close the player with the carat. `,
 
   browserActions: true,
   browserToolbars: true,

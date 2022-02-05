@@ -73,7 +73,10 @@ module.exports = {
             },
             [ _c("fa-icon", {
                 attrs: { icon: "music" }
-              })
+              }),
+              _c("span", { staticClass: "badge" }, 
+                [_v($localData.settings.hqAudio ? "HQ" : "LQ")]
+              )
             ], 1
           )
         }}

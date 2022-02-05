@@ -77,10 +77,10 @@ module.exports = {
         if (store.get("logo_src")?.width) {
             computed.styles.push(
                 {body: `
-.homepage.pageBody {
-    .Logo .topLogo {
+.pageBody {
+    .topLogo {
         img, video {
-            width: ${store.get("logo_src")?.width}px;
+            width: ${store.get("logo_src")?.width}px !important;
         }
     }
 }`})
@@ -137,7 +137,7 @@ module.exports = {
             }
         }
     },{
-        matchName: "homepage",
+        matchName: "logo",
         data: {
             logo_src($super){
                 return store.get("logo_src")?.src || $super
