@@ -3,7 +3,7 @@ let story_author = null
 
 module.exports = {
   title: "Homestuck Companion Commentary", 
-  summary: "Transcription of the author commentary from the Homestuck books, with archivists' notes from the /r/Homestuck community.",
+  summary: "Transcription of the author commentary from the Homestuck books, with archivists' notes from the /r/Homestuck community. Credits to Bambosh for the original OCR, Drew Linky and Makin for book page to webcomic page conversion, and GiovanH for modding API implementation.",
   author: "/r/homestuck",
   version: 0.1,
 
