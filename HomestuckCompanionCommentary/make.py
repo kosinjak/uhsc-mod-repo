@@ -1,4 +1,5 @@
 import json
+import re
 
 def vizToMspa(story_name, viz_num):
     # Somehow this is actually correct
@@ -31,7 +32,7 @@ andrew_footnotes = {
     "story": {}
 }
 archivist_notes = {
-    "author": "/r/Homestuck archivists",
+    "author": "Homestuck Companion",
     "story": {}
 }
 
@@ -46,7 +47,14 @@ for record in commentary:
                 andrew_footnotes['story'][pageid] = [{"content": pc}]
 
             if mn := page.get("notes"):
-                archivist_notes['story'][pageid] = [{"content": mn}]
+                if match := re.match(r'([A-Za-z]+[A-Za-z ][A-Za-z]+): (.+)', mn):
+                    author, content = match.groups()
+                    archivist_notes['story'][pageid] = [{
+                        "author": author,
+                        "content": content
+                    }]
+                else:
+                    archivist_notes['story'][pageid] = [{"content": mn}]
         except:
             print(page)
             raise
