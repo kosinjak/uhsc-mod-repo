@@ -64,5 +64,8 @@ footnoteCollection = [
     archivist_notes
 ]
 
-with open("footnotes.json", "w", encoding="utf-8") as fp:
-    json.dump(footnoteCollection, fp, ensure_ascii=False, indent=2)
+with open("footnotes.js", "w", encoding="utf-8") as fp:
+    fp.write("\nstory_archivist = ")
+    fp.write(json.dumps(archivist_notes['story'], ensure_ascii=False, indent=2))
+    fp.write("story_author = ")
+    fp.write(json.dumps(andrew_footnotes['story'], ensure_ascii=False, indent=2))

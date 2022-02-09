@@ -1,58 +1,3 @@
-let story_archivist = null
-let story_author = null
-
-module.exports = {
-  title: "Homestuck Companion Commentary", 
-  summary: "Transcription of the author commentary from the Homestuck books, with archivists' notes from the /r/Homestuck community. ",
-  description: `Credits to Bambosh for the original OCR, Drew Linky and Makin for book page to webcomic page conversion, and GiovanH for modding API implementation.`,
-
-  author: "/r/homestuck",
-  version: 0.1,
-
-  footnotes: true,
-
-  computed(api) { 
-    store = api.store
-
-    // Store defaults
-    store.set("show_author", store.get("show_author", true))
-    store.set("show_notes", store.get("show_notes", true))
-
-    // Compute footnotes object
-    let notes = []
-    if (store.get("show_author")) {
-      notes.push({
-        "author": store.get("hidename") ? "" : "Andrew Hussie",
-        "story": story_author
-      })
-    }
-
-    if (store.get("show_notes")) {
-      notes.push({
-        "author": "Homestuck Companion",
-        "story": story_archivist
-      })
-    }
-
-    return {
-      footnotes: notes
-    }
-  },
-  
-  settings: {
-    boolean: [{
-      model: "show_author",
-      label: "Include author commentary",
-    },{
-      model: "show_notes",
-      label: "Include archivist commentary",
-    },{
-      model: "hidename",
-      label: "Hide Name",
-      desc: "Don't show \"Andrew Hussie\" name on commentary footnotes"
-    }]
-  }
-}
 
 story_archivist = {
   "001924": [
@@ -204,8 +149,7 @@ story_archivist = {
       "content": "And here it is: https://www.instagram.com/p/BgJqofOHoV1/?taken-by=teacupscosplay"
     }
   ]
-}
-story_author = {
+}story_author = {
   "001901": [
     {
       "content": "Homestuck (the stable release) began on April 13th (i.e. 4/13), 2009. My intent was always to make the start date a very significant number in the story, recurring frequently. Consequently, I decided to make him thirteen years old, thus making the story about four thirteen-year-old kids. There are more references to this number than can be mentioned casually, some of which are serendipitous. Playing cards, which have a good deal of relevance later, are comprised of four suits of thirteen cards each, for instance."
