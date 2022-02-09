@@ -3,43 +3,42 @@ let store = null
 
 const css_smallmainmenu = `
 .homepage.pageBody {
-    .card {
-        margin-bottom: 25px;
+   .card {
+        margin-top: 1em;
         img.logo {
             display: none;
-            &.cardContent + .cardContent {
-                padding-top: 0;
+        }
+        .rowItem {
+            flex: 1 0 30%;
+            .description p:last-child {
+                display: none;
             }
         }
-    }
-    .navBanner + .card.Logo {
-        border-top: 0;
-        padding-top: 0;
-        padding-bottom: 1em;
-        margin-top: -25px;
-        .topLogo {
-            display: none;
-        }
-    }
-    div.card:nth-child(4) {
+   }
+    .mspaCard .mainSection {
         display: flex;
         flex-flow: row;
         justify-content: space-around;
-    }
-    .cardEntry { &.jbCard, &.bqCard, &.psCard {
-        padding-top: 0 !important;
-        flex: 1 1 0;
-        div.icon {
-            margin: auto;
-            font-size: 28px;
-            img {
-                margin: auto;
-            }
-        }
+        width: 100%;
+        padding-bottom: 1em;
         .description {
             display: none;
         }
-    }}
+        .jbCard, .bqCard, .psCard {
+            padding-top: 0 !important;
+            flex: 1 1 0;
+            div.icon {
+                margin: auto;
+                font-size: 28px;
+                img {
+                    margin: auto;
+                }
+            }
+       }
+    }
+   .card.logoCard, div.logo {
+       display: none;
+   }
     .jbCard .icon a::after { content: "Jailbreak"; }
     .bqCard .icon a::after { content: "Bard Quest"; }
     .psCard .icon a::after { content: "Problem Sleuth"; }
@@ -179,18 +178,23 @@ module.exports = {
             urls($super){
                 if (store.get('altnavbanner')) {
                     return [
-                        [ "/"
+                        [
+                          "https://www.homestuck.com"
                         ],
-                        [ "https://www.homestuck.com",
+                        [
+                          "/",
                           "toggleJumpBox"
                         ],
-                        [ "/map",
+                        [
+                          "/map",
                           "/log",
                           "/search"
                         ],
-                        [ "toggleBookmarks"
+                        [
+                          "toggleBookmarks"
                         ],
-                        [ "/settings",
+                        [
+                          "/settings",
                           "/credits"
                         ]
                     ]
@@ -242,7 +246,7 @@ module.exports = {
         boolean: [{
             model: "altnavbanner",
             label: "Alternate nav banner", 
-            desc: "Prioritizes the home page link in navigation, with viz's homestuck.com as secondary",
+            desc: "Use the old nav banner from v1.1.0",
         },{
             model: "smallmainmenu",
             label: "Smaller main menu layout"
