@@ -256,7 +256,7 @@ module.exports = {
         },{
             model: "swfnav_keyboardenable",
             label: "Always enable keyboard shortcuts",
-            desc: 'If "Enable arrow key navigation" is enabled, this forces arrow keys to work even on pages without clickable links. Enabling this may allow you to accidently skip content.'
+            desc: 'If "Enable arrow key navigation" is enabled, this forces arrow keys to work even on pages without clickable links. Enabling this may allow you to accidentally skip content.'
         },{
             model: "ryanlogs",
             label: "Show Extra Logs",
