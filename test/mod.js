@@ -171,11 +171,11 @@ module.exports = {
         ]
       ],
       labels($super){
-        this.$logger.debug("Computed data has binding")
+        this.$logger.debug("Computed data has binding", $super)
         let labels = $super
-        labels['']["https://www.homestuck.com"] = "VIZ"
-        labels['']["/"] = "HOMESTUCK"
-        labels['']["/log"] = this.labels['']["/log"]
+        labels['mspa']["https://www.homestuck.com"] = "VIZ"
+        labels['mspa']["/"] = "HOMESTUCK"
+        labels['mspa']["/log"] = this.labels['mspa']["/log"]
         return labels
       }
     },

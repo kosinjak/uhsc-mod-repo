@@ -105,6 +105,12 @@ module.exports = {
         if (store.get("whiterapper")) {
             replaceContent(archive.mspa.story, '002286', "being a white guy who is a rapper", "being a Íæûë€Å guy who is a rapper")
         }
+
+        if (store.get("clearThemesForNewReader"))
+            archive.tweaks.clearThemesForNewReader = true
+
+        if (store.get("swfnav_keyboardenable"))
+            archive.tweaks.forceKeyboardEnable = true
     },
 
     vueHooks: [{
@@ -126,30 +132,10 @@ module.exports = {
             }
         }
     },{
-        matchName: "page",
-        data: {
-            forceKeyboardEnable($super){
-                if (store.get("swfnav_keyboardenable"))
-                    return true
-                else
-                    return $super
-            }
-        }
-    },{
         matchName: "logo",
         data: {
             logo_src($super){
                 return store.get("logo_src")?.src || $super
-            }
-        }
-    },{
-        matchName: "settings",
-        data: {
-            clearThemesForNewReader($super){
-                if (store.get("clearThemesForNewReader"))
-                    return true
-                else
-                    return $super
             }
         }
     },{
