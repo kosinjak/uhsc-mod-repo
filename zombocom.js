@@ -4,13 +4,21 @@ module.exports = {
     author: "GiovanH",
     modVersion: 0.1,
 
+    edit(archive) {
+        archive.tweaks.modHomeRowItems.push({
+            href: "/zombo",
+            thumbsrc: "/archive/collection/archive_ryanquest.png",
+            date: "",
+            title: 'Zombocom',
+            description: `<p>You can do anything</p>`
+        })
+    },
+
     browserPages: {
-        'ZOMBO': {
+        'ZOMBO': { // maps to /zombo
             component: {
-                title: () => "ZOMBOCOM",
-                theme(ctx){
-                    return 'retro'
-                },
+                title: () => "ZOMBOCOM", // Tab title
+                theme: (ctx) => 'retro', // tab "desired" theme
                 methods: {
                     buttonclick() {
                         const button = this.$refs.button
