@@ -44,6 +44,12 @@ const css_smallmainmenu = `
     .psCard .icon a::after { content: "Problem Sleuth"; }
 }`
 
+const css_smalllog = `
+.textContent .log .logContent {
+    max-height: 14em;
+    overflow: auto;
+}`
+
 function replaceContent(story, key, pat, repl){
     story[key].content = story[key].content.replace(pat, repl)
 }
@@ -87,6 +93,11 @@ module.exports = {
         if (store.get("smallmainmenu")) {
             computed.styles.push(
                 {body: css_smallmainmenu}
+            )
+        }
+        if (store.get("smalllog")) {
+            computed.styles.push(
+                {body: css_smalllog}
             )
         }
         return computed
@@ -237,6 +248,10 @@ module.exports = {
             model: "smallmainmenu",
             label: "Smaller main menu layout"
         },{
+            model: "smalllog",
+            label: "Small dialogue box",
+            desc: "Clamp the size of the dialogue area, so the panel stays in view."
+        },{
             model: "nosuggest",
             label: "Disable address bar suggestions"
         },{
@@ -258,7 +273,7 @@ module.exports = {
         },{
             model: "notricksterbanner",
             label: "Allow hiding banner",
-            desc: "Allows the app to hide the main nagivation banner on normal pages where the story did."
+            desc: "Allows the app to hide the main navigation banner on normal pages where the story did."
         },{
             model: "readmeta",
             label: "Show readmspa metadata box"
