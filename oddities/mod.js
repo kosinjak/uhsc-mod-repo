@@ -54,6 +54,83 @@ function replaceContent(story, key, pat, repl){
     story[key].content = story[key].content.replace(pat, repl)
 }
 
+const browserActions = {
+    DevModeToggle: {
+      component: {
+        methods: {
+          toggle(){
+            this.$localData.settings.devMode = !this.$localData.settings.devMode
+          }
+        },
+        render: function(){with (this) {
+          return _c(
+            "div",
+            { staticClass: "systemButton",
+              class: { active: $localData.settings.devMode },
+              on: { click: toggle }
+            },
+            [ _c("fa-icon", {
+                attrs: { icon: "mouse-pointer" }
+              })
+            ], 1
+          )
+        }}
+      }
+    },
+    HQAudioToggle: {
+      component: {
+        methods: {
+          toggle(){
+            const { ipcRenderer } = require('electron')
+            this.$localData.settings.hqAudio = !this.$localData.settings.hqAudio
+            ipcRenderer.send('RELOAD_ARCHIVE_DATA')
+          }
+        },
+        render: function(){with (this) {
+          return _c(
+            "div",
+            { staticClass: "systemButton",
+              class: { active: $localData.settings.hqAudio },
+              on: { click: toggle }
+            },
+            [ _c("fa-icon", {
+                attrs: { icon: "music" }
+              }),
+              _c("span", { staticClass: "badge" }, 
+                [_v($localData.settings.hqAudio ? "HQ" : "LQ")]
+              )
+            ], 1
+          )
+        }}
+      }
+    },
+    VizNumberToggle: {
+      component: {
+        methods: {
+          toggle(){
+            this.$localData.settings.mspaMode = !this.$localData.settings.mspaMode
+          }
+        },
+        render: function(){with (this) {
+          return _c(
+            "div",
+            { staticClass: "systemButton",
+              class: { active: $localData.settings.mspaMode },
+              on: { click: toggle }
+            },
+            [ _c("fa-icon", {
+                attrs: { icon: "external-link-alt" }
+              }),
+              _c("span", { staticClass: "badge" }, 
+                [_v($localData.settings.mspaMode ? "MSPA" : "Viz")]
+              )
+            ], 1
+          )
+        }}
+      }
+    }
+}
+
 module.exports = {
     title: "UHC Oddities", 
     summary: "Features and tweaks that are too weird for settings",
@@ -72,6 +149,10 @@ module.exports = {
             styles: []
         }
         computed.routes['assets://pseudo/v1_compressed.png'] = './collection_logo.png'
+        
+        if (store.get("extraButtons")) {
+            computed.browserActions = browserActions
+        }
         
         if (store.get("notricksterbanner")) {
             computed.styles.push(
@@ -247,6 +328,10 @@ module.exports = {
         },{
             model: "smallmainmenu",
             label: "Smaller main menu layout"
+        },{
+            model: "extraButtons",
+            label: "Extra buttons",
+            desc: "Additional debugging buttons in the address bar"
         },{
             model: "smalllog",
             label: "Small dialogue box",
