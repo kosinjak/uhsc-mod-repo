@@ -5,7 +5,7 @@ module.exports = {
     modVersion: 0.1,
 
     edit(archive) {
-        archive.tweaks.modHomeRowItems.push({
+        archive.tweaks.modHomeRowItems.unshift({
             href: "/zombo",
             thumbsrc: "/archive/collection/archive_ryanquest.png",
             date: "",
