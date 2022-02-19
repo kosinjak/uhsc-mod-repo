@@ -5,7 +5,7 @@ module.exports = {
   title: "Neko",
   summary: "gives you a little friend",
   author: "GiovanH",
-  modVersion: 0.1,
+  modVersion: 0.2,
 
   trees: {
     "./": "assets://mod/neko/"
@@ -26,6 +26,11 @@ module.exports = {
         label: "Nepeta",
       }]
     }],
+    boolean: [{
+      model: "fixedpos",
+      label: "Fixed position",
+      desc: "Attach to your screen, not the page.",
+    }]
   },
 
   computed(api) {
@@ -51,26 +56,34 @@ module.exports = {
 
           x.style.width = "100px"
 
-          x.style.position = "absolute"
+          x.style.position = store.get("fixedpos") ? "fixed" : "absolute"
           x.style.zIndex = "3"
 
-          x.style.bottom = "10px"
-          x.style.right = "10px"
+          x.style.top = store.get(`${this.tabKey}_top`, "550px")
+          x.style.left = store.get(`${this.tabKey}_left`, "850px")
 
           x.style.cursor = "grab"
           x.style.transform = "translate(-50%, -50%)" // center on cursor
 
           x.addEventListener("dragstart", (event) => {
             const rect = x.getBoundingClientRect();
-            x.style.transform = `translate(-${event.clientX - rect.left}px, -${event.clientY - rect.top}px)`
+            // x.style.transform = `translate(-${event.clientX - rect.left}px, -${event.clientY - rect.top}px)`
           })
           x.addEventListener("dragend", (event) => {
-            x.style.top = event.clientY + 'px'
-            x.style.left = event.clientX + 'px'
+            const top = event.clientY + 'px'
+            const left = event.clientX + 'px'
+            store.set(`${this.tabKey}_top`, top)
+            store.set(`${this.tabKey}_left`, left)
+            x.style.top = top
+            x.style.left = left
           })
           this.nekoMod_hasNeko = true
         }
       })
     },
+    destroyed(){
+      store.delete(`${this.tabKey}_top`)
+      store.delete(`${this.tabKey}_left`)
+    }
   }]
 }
