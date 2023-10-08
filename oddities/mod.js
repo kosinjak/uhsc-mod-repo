@@ -62,19 +62,19 @@ const browserActions = {
             this.$localData.settings.devMode = !this.$localData.settings.devMode
           }
         },
-        render: function(){with (this) {
-          return _c(
+        render: function(){ // with (this) {
+          return this._c(
             "div",
             { staticClass: "systemButton",
-              class: { active: $localData.settings.devMode },
-              on: { click: toggle }
+              class: { active: this.$localData.settings.devMode },
+              on: { click: this.toggle }
             },
-            [ _c("fa-icon", {
+            [ this._c("fa-icon", {
                 attrs: { icon: "mouse-pointer" }
               })
             ], 1
           )
-        }}
+        } // }
       }
     },
     HQAudioToggle: {
@@ -86,22 +86,22 @@ const browserActions = {
             ipcRenderer.send('RELOAD_ARCHIVE_DATA')
           }
         },
-        render: function(){with (this) {
-          return _c(
+        render: function(){ // with (this) {
+          return this._c(
             "div",
             { staticClass: "systemButton",
-              class: { active: $localData.settings.hqAudio },
-              on: { click: toggle }
+              class: { active: this.$localData.settings.hqAudio },
+              on: { click: this.toggle }
             },
-            [ _c("fa-icon", {
+            [ this._c("fa-icon", {
                 attrs: { icon: "music" }
               }),
-              _c("span", { staticClass: "badge" }, 
-                [_v($localData.settings.hqAudio ? "HQ" : "LQ")]
+              this._c("span", { staticClass: "badge" },
+                [this._v(this.$localData.settings.hqAudio ? "HQ" : "LQ")]
               )
             ], 1
           )
-        }}
+        } // }
       }
     },
     VizNumberToggle: {
@@ -111,22 +111,22 @@ const browserActions = {
             this.$localData.settings.mspaMode = !this.$localData.settings.mspaMode
           }
         },
-        render: function(){with (this) {
-          return _c(
+        render: function(){ // with (this) {
+          return this._c(
             "div",
             { staticClass: "systemButton",
-              class: { active: $localData.settings.mspaMode },
-              on: { click: toggle }
+              class: { active: this.$localData.settings.mspaMode },
+              on: { click: this.toggle }
             },
-            [ _c("fa-icon", {
+            [ this._c("fa-icon", {
                 attrs: { icon: "external-link-alt" }
               }),
-              _c("span", { staticClass: "badge" }, 
-                [_v($localData.settings.mspaMode ? "MSPA" : "Viz")]
+              this._c("span", { staticClass: "badge" },
+                [this._v(this.$localData.settings.mspaMode ? "MSPA" : "Viz")]
               )
             ], 1
           )
-        }}
+        } // }
       }
     }
 }
@@ -135,7 +135,7 @@ module.exports = {
     title: "UHC Oddities", 
     summary: "Features and tweaks that are too weird for settings",
     author: "GiovanH",
-    modVersion: 0.1,
+    modVersion: 0.2,
 
     routes: {},
     styles: [],
@@ -171,11 +171,11 @@ module.exports = {
     }
 }`})
         }
-        if (store.get("smallmainmenu")) {
-            computed.styles.push(
-                {body: css_smallmainmenu}
-            )
-        }
+        // if (store.get("smallmainmenu")) {
+        //     computed.styles.push(
+        //         {body: css_smallmainmenu}
+        //     )
+        // }
         if (store.get("smalllog")) {
             computed.styles.push(
                 {body: css_smalllog}
@@ -225,9 +225,16 @@ module.exports = {
         }
     },{
         matchName: "logo",
-        data: {
+        computed: {
             logo_src($super){
                 return store.get("logo_src")?.src || $super
+            }
+        }
+    },{
+        matchName: "epilogues",
+        data: {
+            fakechat($super){
+                return store.get("epiloguesfakechat", $super)
             }
         }
     },{
@@ -281,9 +288,9 @@ module.exports = {
             labels($super){
                 let labels = $super
                 if (store.get('altnavbanner')) {
-                    labels['']["https://www.homestuck.com"] = "VIZ"
-                    labels['']["/"] = "HOMESTUCK"
-                    labels['']["/log"] = this.labels['']["/log"]
+                    labels['mspa']["https://www.homestuck.com"] = "VIZ"
+                    labels['mspa']["/"] = "HOMESTUCK"
+                    labels['mspa']["/log"] = this.labels['']["/log"]
                 }
                 return labels
             }
@@ -326,9 +333,9 @@ module.exports = {
             label: "Alternate nav banner", 
             desc: "Use the old nav banner from v1.1.0",
         },{
-            model: "smallmainmenu",
-            label: "Smaller main menu layout"
-        },{
+        //     model: "smallmainmenu",
+        //     label: "Smaller main menu layout"
+        // },{
             model: "extraButtons",
             label: "Extra buttons",
             desc: "Additional debugging buttons in the address bar"
@@ -369,6 +376,9 @@ module.exports = {
         },{
             model: "clearThemesForNewReader",
             label: "Reset theme settings when new reader mode is enabled",
+        },{
+            model: "epiloguesfakechat",
+            label: "Epilogues: wrap chat in fake log boxes",
         }]
     }
 }
