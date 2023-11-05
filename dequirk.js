@@ -55,7 +55,7 @@ const QUIRKS = [
   {
     id: "terezi",
     repl: logLineReplaceFactory([
-        [/([413])/g, i => "I_EA"[i]], // this isn't my first rodeo
+        [/([413])/g, i => "_I_EA"[i]], // this isn't my first rodeo
       ],
       {colorfilter: ["#008141", "#008282"]}
     )
@@ -167,7 +167,7 @@ module.exports = {
   title: "DeQuirk",
   summary: "Removes quirks from text",
   author: "GiovanH, FlaringK",
-  version: 0.2,
+  version: 0.21,
 
   settings: {
     radio: QUIRKS.map(quirk => {
