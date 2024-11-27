@@ -1,48 +1,48 @@
 let logger = null
 let store = null
 
-const css_smallmainmenu = `
-.homepage.pageBody {
-   .card {
-        margin-top: 1em;
-        img.logo {
-            display: none;
-        }
-        .rowItem {
-            flex: 1 0 30%;
-            .description p:last-child {
-                display: none;
-            }
-        }
-   }
-    .mspaCard .mainSection {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-around;
-        width: 100%;
-        padding-bottom: 1em;
-        .description {
-            display: none;
-        }
-        .jbCard, .bqCard, .psCard {
-            padding-top: 0 !important;
-            flex: 1 1 0;
-            div.icon {
-                margin: auto;
-                font-size: 28px;
-                img {
-                    margin: auto;
-                }
-            }
-       }
-    }
-   .card.logoCard, div.logo {
-       display: none;
-   }
-    .jbCard .icon a::after { content: "Jailbreak"; }
-    .bqCard .icon a::after { content: "Bard Quest"; }
-    .psCard .icon a::after { content: "Problem Sleuth"; }
-}`
+// const css_smallmainmenu = `
+// .homepage.pageBody {
+//    .card {
+//         margin-top: 1em;
+//         img.logo {
+//             display: none;
+//         }
+//         .rowItem {
+//             flex: 1 0 30%;
+//             .description p:last-child {
+//                 display: none;
+//             }
+//         }
+//    }
+//     .mspaCard .mainSection {
+//         display: flex;
+//         flex-flow: row;
+//         justify-content: space-around;
+//         width: 100%;
+//         padding-bottom: 1em;
+//         .description {
+//             display: none;
+//         }
+//         .jbCard, .bqCard, .psCard {
+//             padding-top: 0 !important;
+//             flex: 1 1 0;
+//             div.icon {
+//                 margin: auto;
+//                 font-size: 28px;
+//                 img {
+//                     margin: auto;
+//                 }
+//             }
+//        }
+//     }
+//    .card.logoCard, div.logo {
+//        display: none;
+//    }
+//     .jbCard .icon a::after { content: "Jailbreak"; }
+//     .bqCard .icon a::after { content: "Bard Quest"; }
+//     .psCard .icon a::after { content: "Problem Sleuth"; }
+// }`
 
 const css_smalllog = `
 .textContent .log .logContent {
@@ -83,6 +83,8 @@ const browserActions = {
           toggle(){
             const { ipcRenderer } = require('electron')
             this.$localData.settings.hqAudio = !this.$localData.settings.hqAudio
+            this.$localData.root.saveLocalStorage()
+            this.$localData.root.applySaveIfPending()
             ipcRenderer.send('RELOAD_ARCHIVE_DATA')
           }
         },
@@ -135,7 +137,7 @@ module.exports = {
     title: "UHC Oddities", 
     summary: "Features and tweaks that are too weird for settings",
     author: "GiovanH",
-    modVersion: 0.2,
+    modVersion: 0.3,
 
     routes: {},
     styles: [],
@@ -230,15 +232,15 @@ module.exports = {
                 return store.get("logo_src")?.src || $super
             }
         }
+    // },{
+    //     matchName: "epilogues",
+    //     data: {
+    //         fakechat($super){
+    //             return store.get("epiloguesfakechat", $super)
+    //         }
+    //     }
     },{
-        matchName: "epilogues",
-        data: {
-            fakechat($super){
-                return store.get("epiloguesfakechat", $super)
-            }
-        }
-    },{
-        match: (c)=> ["tabBar", "jumpBox"].includes(c.$options.name),
+        match: (c)=> ["addressBar", "jumpBox"].includes(c.$options.name),
         computed: {
             allUrlSuggestions($super){
                 if (store.get("nosuggest"))
@@ -290,7 +292,7 @@ module.exports = {
                 if (store.get('altnavbanner')) {
                     labels['mspa']["https://www.homestuck.com"] = "VIZ"
                     labels['mspa']["/"] = "HOMESTUCK"
-                    labels['mspa']["/log"] = this.labels['']["/log"]
+                    // labels['mspa']["/log"] = this.labels['']["/log"]
                 }
                 return labels
             }
@@ -376,9 +378,9 @@ module.exports = {
         },{
             model: "clearThemesForNewReader",
             label: "Reset theme settings when new reader mode is enabled",
-        },{
-            model: "epiloguesfakechat",
-            label: "Epilogues: wrap chat in fake log boxes",
+        // },{
+        //     model: "epiloguesfakechat",
+        //     label: "Epilogues: wrap chat in fake log boxes",
         }]
     }
 }
