@@ -1,6 +1,6 @@
 module.exports = {
     title: "Serial", 
-    desc: "Shows the time between pages when you hover over command links",
+    summary: "Shows the time between pages when you hover over command links",
 
     edit(archive) {
 
@@ -23,3 +23,4 @@ module.exports = {
         },
     }],
 }
+
